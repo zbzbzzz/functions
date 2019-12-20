@@ -435,6 +435,7 @@ public class PojoToJsonTest {
 
 
 
+    // 通用方法test
     @Test
     public void testLinkDateConver() {
         FinanceAssetsDebt financeAssetsDebt =new FinanceAssetsDebt();

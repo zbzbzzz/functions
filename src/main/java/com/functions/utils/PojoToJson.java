@@ -12,11 +12,12 @@ import java.util.Map;
 /**
  * @Author ：zbzbzzz
  * @Date ：Created in 19:50 2019/12/20
- * @Description：_____
+ * @Description：_____上链工具方法
  * @Modified By：
  * @Version: X.X
  */
 public class PojoToJson {
+    // 初始化api，目前的参数为示例参数
     private BaseApi baseApi = new BaseApi(
             "testchannel",
             "zmmcode",
@@ -38,10 +39,16 @@ public class PojoToJson {
         JSONObject jsonData = new JSONObject(data);
         return jsonData;
     }
-
+    // 通用转换方法
     public String linkDateConver(Object o) {
+        // 根据表生成hash
+        String hash = SHA256Util.getSHA256String(JSON.toJSONString(o));
         List<Object> arg = new ArrayList<>();
+        // 添加表和hash到list
         arg.add(o);
+        arg.add(hash);
+
+        //添加args字段的参数
         this.baseApi.setArgs(arg);
         return JSON.toJSONString(this.baseApi);
     }
