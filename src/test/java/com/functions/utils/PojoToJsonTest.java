@@ -33,6 +33,7 @@ public class PojoToJsonTest {
 
     @Test
     public void linkDateConver() {
+
         FinanceAssetsDebt financeAssetsDebt =new FinanceAssetsDebt();
         //region financeAssetsDebt默认值
         financeAssetsDebt.setId("");
